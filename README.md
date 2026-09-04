@@ -27,7 +27,6 @@ How can you make git ignore the executable you are producing in this repo?
 It might be different for different OS. Make a file called .gitignore and add main to it.
 3. Run `make` twice. What is the inefficiency? What is the fix (at least two possible)?
 The file hasn't changed since first compiling it.
-
 Fix: Compile main.c into main.o first, so make can avoid recompiling it when main.c hasn't changed.
 
 4. From your `main.c` file, print the value of only constant
@@ -36,11 +35,17 @@ Need to include status.h in main.c.
 
 5. Change the value of the constant in `status.h` from `true` to `false`.
 Run `make`. What is the problem? What is the fix?
+problem: enrolled is defined in more than one file (student.h and main.c).
+fix: declare the variable in status.h and initialize the value in status.c
+
 6. Warnings are a great tool to have when programming.
 Enable all the possible warnings you will ever get from your compiler.
+gcc -Wall -Wextra -Werror --std=c2x main.c
+
 7. Include `student.h` into your `makefile`. In addition to step 4,
 also define a student. What is the error? What is the fix?
-
+error: unknown type name ‘student_t’
+Need to include student.h in main.c
 ### Data Types
 
 1. What is a variable (take a minute to write it down)?
