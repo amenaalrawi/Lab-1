@@ -19,11 +19,21 @@ rather than a strict guided path into c prowess.
 ### Playing around with makefile
 
 1. Run the `make` command. What is the error? What is the fix?
+Error: main.c is missing the main() function.
+Fix: main() to main.c
+
 2. It is usually NOT a good idea to commit an executable file on git. Why?
 How can you make git ignore the executable you are producing in this repo?
+It might be different for different OS. Make a file called .gitignore and add main to it.
 3. Run `make` twice. What is the inefficiency? What is the fix (at least two possible)?
+The file hasn't changed since first compiling it.
+
+Fix: Compile main.c into main.o first, so make can avoid recompiling it when main.c hasn't changed.
+
 4. From your `main.c` file, print the value of only constant
 defined in `status.h`. What is the error? What is the fix (at least two possible)?
+Need to include status.h in main.c.
+
 5. Change the value of the constant in `status.h` from `true` to `false`.
 Run `make`. What is the problem? What is the fix?
 6. Warnings are a great tool to have when programming.
@@ -34,7 +44,9 @@ also define a student. What is the error? What is the fix?
 ### Data Types
 
 1. What is a variable (take a minute to write it down)?
+Used to store values/data
 2. Each variable has a type in C. What are all the types defined in C?
+void, char, short, int, long, float, double
 3. Create two files `sizeinfo.h` and `sizeinfo.c`. `sizeinfo.h` should
 expose a function `void system_sizes()`. This function
 
